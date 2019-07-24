@@ -38,7 +38,7 @@ public class SysLoginController extends AbstractController {
 	private String maxRetryCount;
 
 	@PostMapping("/admin/sys/login")
-	public Result login(@RequestBody @Valid SysLoginForm form, BindingResult errorResult) {
+	public Result login( @Valid SysLoginForm form, BindingResult errorResult) {
 		if (errorResult.hasErrors()) {
 			List<ObjectError> errors = errorResult.getAllErrors();
 			List<String> messAges = errors.stream().map(info -> info.getDefaultMessage()).collect(Collectors.toList());
@@ -50,6 +50,7 @@ public class SysLoginController extends AbstractController {
 						.lambda()
 						.eq(SysUser::getUsername, form.getUsername()));
 		if (user == null || !user.getPassword().equals(new Sha256Hash(form.getPassword(), user.getSalt()).toHex())) {
+			System.out.println(new Sha256Hash("admin", "YzcmCZNvbXocrsz9dm8e").toHex());
 			// 用户名或密码错误
 			AsyncManager.me().execute(AsyncFactory.recordLogininfor(user.getUsername(), "fail", MessageUtils.message("user.password.retry.limit.exceed", maxRetryCount)));
 			return Result.error(ErrorEnum.USERNAME_OR_PASSWORD_WRONG);

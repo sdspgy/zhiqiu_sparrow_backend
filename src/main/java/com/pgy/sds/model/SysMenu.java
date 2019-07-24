@@ -47,18 +47,20 @@ public class SysMenu implements Serializable {
 	@ApiModelProperty(value = "排序")
 	private Integer orderNum;
 
-	/**
-	 * 父菜单名称
-	 */
-	@TableField(exist=false)
-	private String parentName;
-	/**
-	 * z-tree属性
-	 */
-	@TableField(exist=false)
-	private Boolean open;
-
-	@TableField(exist=false)
-	private List<?> list;
+	@TableField(exist = false)
+	private List<SysMenu> childSysMenu;
+//	/**
+//	 * 父菜单名称
+//	 */
+//	@TableField(exist=false)
+//	private String parentName;
+//	/**
+//	 * z-tree属性
+//	 */
+//	@TableField(exist=false)
+//	private Boolean open;
+//
+//	@TableField(exist=false)
+//	private List<?> list;
 
 }
