@@ -19,4 +19,6 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
 	 * @return
 	 */
 	List<String> queryAllPerms(Integer userId);
+
+	List<SysUser> queryAllUser();
 }

@@ -58,5 +58,5 @@ public class SysUser implements Serializable {
 	private Integer status;
 
 	@TableField(exist = false)
-	private List<Integer> roleIdList;
+	private List<SysRole> roleList;
 }

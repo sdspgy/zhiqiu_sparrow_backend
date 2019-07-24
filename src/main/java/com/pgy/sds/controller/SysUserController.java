@@ -5,6 +5,7 @@ import com.pgy.sds.model.Log;
 import com.pgy.sds.model.Result;
 import com.pgy.sds.model.SysUser;
 import com.pgy.sds.service.SysUserService;
+import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +38,14 @@ public class SysUserController extends AbstractController {
 		//		user.setRoleIdList(roleIdList);
 
 		return Result.ok().put("user", user);
+	}
+
+	@PostMapping("/allUser")
+	@RequiresPermissions(value = { "sys:user:queryAllUser", "sys:user:info" }, logical = Logical.AND)
+	@Log(value = "所有用户信息")
+	public Result queryAllUser(@RequestParam Map<String, Object> params) {
+		List<SysUser> sysUsers = sysUserService.queryAllUser();
+		return Result.ok().put("sysUsers", sysUsers);
 	}
 
 }

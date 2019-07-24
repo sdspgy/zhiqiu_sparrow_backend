@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pgy.sds.dao.SysUserMapper;
 import com.pgy.sds.model.SysUser;
 import com.pgy.sds.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Author:   taoyuzhu(taoyuzhu@hulai.com)
@@ -14,4 +17,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
+	@Autowired SysUserMapper sysUserMapper;
+
+	@Override
+	public List<SysUser> queryAllUser() {
+		return sysUserMapper.queryAllUser();
+	}
 }
