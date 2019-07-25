@@ -12,13 +12,20 @@ import java.util.List;
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
-	/**
-	 * 查询用户所有权限
-	 *
-	 * @param userId
-	 * @return
-	 */
-	List<String> queryAllPerms(Integer userId);
+    /**
+     * 查询用户所有权限
+     *
+     * @param userId
+     * @return
+     */
+    List<String> queryAllPerms(Integer userId);
 
-	List<SysUser> queryAllUser();
+    /**
+     * 查询所以用户信息（角色）
+     *
+     * @return
+     */
+    List<SysUser> queryAllUser();
+
+
 }

@@ -11,5 +11,7 @@ import java.util.List;
  * Description:
  */
 public interface SysMenuService extends IService<SysMenu> {
+
+    /*查询完整权限树*/
     List<SysMenu> querySysMenuTree(Integer parentId);
 }

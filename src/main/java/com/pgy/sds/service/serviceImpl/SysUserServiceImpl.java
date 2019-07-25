@@ -17,10 +17,12 @@ import java.util.List;
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
-	@Autowired SysUserMapper sysUserMapper;
+    @Autowired
+    SysUserMapper sysUserMapper;
 
-	@Override
-	public List<SysUser> queryAllUser() {
-		return sysUserMapper.queryAllUser();
-	}
+    /*查询所以用户信息（角色）*/
+    @Override
+    public List<SysUser> queryAllUser() {
+        return sysUserMapper.queryAllUser();
+    }
 }

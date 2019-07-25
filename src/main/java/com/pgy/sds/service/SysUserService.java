@@ -12,5 +12,6 @@ import java.util.List;
  */
 public interface SysUserService extends IService<SysUser> {
 
-	List<SysUser> queryAllUser();
+    /*查询所以用户信息（角色）*/
+    List<SysUser> queryAllUser();
 }
