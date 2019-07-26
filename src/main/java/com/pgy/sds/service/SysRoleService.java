@@ -5,7 +5,6 @@ import com.pgy.sds.model.SysRole;
 
 import java.util.List;
 
-
 /**
  * Author:   yuzhu·tao
  * Date:     2019/7/26 0:36
@@ -13,6 +12,12 @@ import java.util.List;
  */
 public interface SysRoleService extends IService<SysRole> {
 
-    /*查询用户所以角色*/
-    List<SysRole> queryUserRoles(Integer userId);
+	/*查询用户所以角色*/
+	List<SysRole> queryUserRoles(Integer userId);
+
+	List<SysRole> queryAllRoles();
+
+	void deleteRoleByRoleId(String roleId);
+
+	void insertRole(SysRole sysRole);
 }

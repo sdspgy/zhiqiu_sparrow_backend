@@ -14,4 +14,8 @@ public interface SysUserService extends IService<SysUser> {
 
     /*查询所以用户信息（角色）*/
     List<SysUser> queryAllUser();
+
+	void insertUser(SysUser sysUser);
+
+	void deletetUserByUserId(String userId);
 }

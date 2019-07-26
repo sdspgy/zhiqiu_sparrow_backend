@@ -7,7 +7,7 @@
     </sql>
 
     <!--查询用户所以角色-->
-    <select id="queryUserRoles" parameterType="java.lang.Integer" resultMap="java.util.HashMap">
+    <select id="queryUserRoles" parameterType="java.lang.Integer" resultType="SysRole">
         SELECT * FROM sys_role sr LEFT JOIN sys_user_role sur USING(role_id) WHERE sur.user_id = #{userId} order by sr.role_id ASC
     </select>
 </mapper>

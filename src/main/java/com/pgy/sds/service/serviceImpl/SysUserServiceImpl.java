@@ -1,5 +1,6 @@
 package com.pgy.sds.service.serviceImpl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pgy.sds.dao.SysUserMapper;
 import com.pgy.sds.model.SysUser;
@@ -17,12 +18,22 @@ import java.util.List;
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
-    @Autowired
-    SysUserMapper sysUserMapper;
+	@Autowired
+	SysUserMapper sysUserMapper;
 
-    /*查询所以用户信息（角色）*/
-    @Override
-    public List<SysUser> queryAllUser() {
-        return sysUserMapper.queryAllUser();
-    }
+	/*查询所以用户信息（角色）*/
+	@Override
+	public List<SysUser> queryAllUser() {
+		return sysUserMapper.queryAllUser();
+	}
+
+	@Override
+	public void insertUser(SysUser sysUser) {
+		sysUserMapper.insert(sysUser);
+	}
+
+	@Override
+	public void deletetUserByUserId(String userId) {
+		sysUserMapper.deleteById(new QueryWrapper<SysUser>().eq("user_id", userId));
+	}
 }

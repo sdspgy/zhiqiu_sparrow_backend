@@ -27,5 +27,11 @@ public interface SysUserMapper extends BaseMapper<SysUser> {
      */
     List<SysUser> queryAllUser();
 
-
+	/**
+	 * 批量重置密码
+	 * @param userIdList
+	 * @param toHex
+	 * @param salt
+	 */
+	void resetPassword(List<Integer> userIdList, String toHex, String salt);
 }

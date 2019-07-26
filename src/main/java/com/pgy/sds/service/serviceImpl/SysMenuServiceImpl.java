@@ -1,5 +1,6 @@
 package com.pgy.sds.service.serviceImpl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pgy.sds.dao.SysMenuMapper;
 import com.pgy.sds.model.SysMenu;
@@ -17,12 +18,22 @@ import java.util.List;
 @Service
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements SysMenuService {
 
-    @Autowired
-    private SysMenuMapper sysMenuMapper;
+	@Autowired
+	private SysMenuMapper sysMenuMapper;
 
-    /*查询完整权限树*/
-    @Override
-    public List<SysMenu> querySysMenuTree(Integer parentId) {
-        return sysMenuMapper.querySysMenuTree(parentId);
-    }
+	/*查询完整权限树*/
+	@Override
+	public List<SysMenu> querySysMenuTree(Integer parentId) {
+		return sysMenuMapper.querySysMenuTree(parentId);
+	}
+
+	@Override
+	public void deletetMenuByMenuId(String menuId) {
+		sysMenuMapper.deleteById(new QueryWrapper<SysMenu>().eq("menu_id", menuId));
+	}
+
+	@Override
+	public void insertMenu(SysMenu sysMenu) {
+		sysMenuMapper.insert(sysMenu);
+	}
 }
