@@ -20,7 +20,7 @@ public class UserUpdate implements BatchOperation {
 
 	@Override
 	public void operation(List<Integer> list) {
-		sysUserMapper.resetPassword(list, new Sha256Hash("123456", "123455").toHex(), "123456");
+		sysUserMapper.resetPassword(list, new Sha256Hash("123456", "123456").toHex(), "123456");
 	}
 
 }

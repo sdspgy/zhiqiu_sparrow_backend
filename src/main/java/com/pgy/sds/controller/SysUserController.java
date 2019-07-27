@@ -16,8 +16,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Author:   taoyuzhu(taoyuzhu@hulai.com)
@@ -34,7 +36,6 @@ public class SysUserController extends AbstractController {
 	private SysUserService sysUserService;
 	@Autowired
 	private SysRoleService sysRoleService;
-
 	@Autowired
 	private SysUserRoleMapper sysUserRoleMapper;
 
@@ -63,7 +64,7 @@ public class SysUserController extends AbstractController {
 
 	@PostMapping("/allUser")
 	@RequiresPermissions(value = { "sys:user:queryAllUser", "sys:user:info" }, logical = Logical.AND)
-	@Log(value = "所有用户信息")
+	@Log(value = "所有用户信息(角色）")
 	public Result queryAllUser(@RequestParam Map<String, String> params) {
 		List<SysUser> sysUsers = sysUserService.queryAllUser();
 		return Result.ok().put("sysUsers", sysUsers);
@@ -92,8 +93,21 @@ public class SysUserController extends AbstractController {
 	@PostMapping("/insertUser")
 	@RequiresPermissions("sys:user:insert")
 	@Log(value = "用户添加")
-	public Result insertUser(@RequestBody SysUser sysUser) {
+	public Result insertUser(@RequestParam Map<String, Object> params) {
+		int userId = new Random().nextInt();
+		SysUser sysUser = new SysUser();
+		sysUser.setUserId(new Random().nextInt());
+		sysUser.setUsername(String.valueOf(params.get("username")));
+		sysUser.setStatus((String) params.get("status"));
 		sysUserService.insertUser(sysUser);
+
+		List<Object> roleIdList = Arrays.asList(params.get("roleIdList"));
+		for (Object o : roleIdList) {
+			SysUserRole sysUserRole = new SysUserRole();
+			sysUserRole.setUserId(userId);
+			sysUserRole.setRoleId((Integer) o);
+			sysUserRoleMapper.insert(sysUserRole);
+		}
 		return Result.ok();
 	}
 

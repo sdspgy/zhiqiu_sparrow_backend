@@ -27,7 +27,7 @@ public class SysUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty(value = "主键")
-	@TableId(value = "user_id", type = IdType.AUTO)
+	@TableId(value = "user_id", type = IdType.INPUT)
 	private Integer userId;
 
 	@NotBlank(message = "用户名不能为空")
@@ -55,7 +55,7 @@ public class SysUser implements Serializable {
 	private Date createTime;
 
 	@ApiModelProperty(value = "0禁用，1正常")
-	private Integer status;
+	private String status;
 
 	@TableField(exist = false)
 	private List<SysRole> roleList;
