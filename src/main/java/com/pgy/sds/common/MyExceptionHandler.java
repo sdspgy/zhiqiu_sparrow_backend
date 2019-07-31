@@ -1,5 +1,6 @@
 package com.pgy.sds.common;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pgy.sds.model.ErrorEnum;
 import com.pgy.sds.model.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
  * Author:   taoyuzhu(taoyuzhu@hulai.com)
  * Date:     2019-07-10 20:59
@@ -17,6 +21,8 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 @RestControllerAdvice
 @Slf4j
 public class MyExceptionHandler {
+
+	ObjectMapper mapper = new ObjectMapper();
 
 	@ExceptionHandler(MyException.class)
 	public Result handleMyException(MyException e) {
@@ -33,9 +39,9 @@ public class MyExceptionHandler {
 	}
 
 	@ExceptionHandler(AuthorizationException.class)
-	public Result handleAuthorizationException(AuthorizationException e) {
+	public void handleAuthorizationException(HttpServletResponse httpServletResponse, AuthorizationException e) throws IOException {
 		log.error(e.getMessage(), e);
-		return Result.exception(ErrorEnum.NO_AUTH);
+		mapper.writeValue(httpServletResponse.getOutputStream(), Result.exception(ErrorEnum.NO_AUTH));
 	}
 
 	@ExceptionHandler(NoHandlerFoundException.class)
