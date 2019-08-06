@@ -27,7 +27,7 @@ public class SysUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty(value = "主键")
-	@TableId(value = "user_id", type = IdType.INPUT)
+	@TableId(value = "user_id", type = IdType.NONE)
 	private Integer userId;
 
 	@NotBlank(message = "用户名不能为空")
