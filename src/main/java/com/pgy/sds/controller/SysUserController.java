@@ -1,7 +1,5 @@
 package com.pgy.sds.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.collect.Lists;
 import com.pgy.sds.controller.batchFactory.UserBatchType;
@@ -95,19 +93,22 @@ public class SysUserController extends AbstractController {
 	@PostMapping("/insertUser")
 	@RequiresPermissions("sys:user:insert")
 	@Log(value = "用户添加")
-	public Result insertUser(@RequestParam Map<String, Object> params, Integer[] roleIdList) {
-		int userId = new Random().nextInt();
+	public Result insertUser(@RequestParam Map<String, Object> params) {
+		String[] roleIdLists = ((String) params.get("roleIdList")).split(",");
+
+		int userId = (int) System.currentTimeMillis();
+		new Random().nextInt(Integer.MAX_VALUE);
 		SysUser sysUser = new SysUser();
 		sysUser.setUserId(userId);
 		sysUser.setUsername(String.valueOf(params.get("username")));
 		sysUser.setStatus((String) params.get("status"));
 		sysUserService.insertUser(sysUser);
 
-		List<Object> roleIdList1 = Arrays.asList(params.get("roleIdList"));
-		for (Object o : roleIdList) {
+		List<String> strings = Arrays.asList(roleIdLists);
+		for (String info : strings) {
 			SysUserRole sysUserRole = new SysUserRole();
 			sysUserRole.setUserId(userId);
-			sysUserRole.setRoleId(Integer.parseInt((String) o));
+			sysUserRole.setRoleId(Integer.parseInt(info));
 			sysUserRoleMapper.insert(sysUserRole);
 		}
 		return Result.ok();
