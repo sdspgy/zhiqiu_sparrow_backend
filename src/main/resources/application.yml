@@ -19,6 +19,7 @@ sds:
 #      example: info
 #  file: logs/pgy.log
 #配置路径
+debug: true
 server:
   servlet:
     context-path:
