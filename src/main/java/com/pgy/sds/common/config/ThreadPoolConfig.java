@@ -10,7 +10,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-11 11:42
  * Description: 线程池配置
  */
@@ -19,13 +19,10 @@ public class ThreadPoolConfig {
 
 	// 核心线程池大小
 	private int corePoolSize = 50;
-
 	// 最大可创建的线程数
 	private int maxPoolSize = 200;
-
 	// 队列最大长度
 	private int queueCapacity = 1000;
-
 	// 线程池维护线程所允许的空闲时间
 	private int keepAliveSeconds = 300;
 
@@ -36,14 +33,12 @@ public class ThreadPoolConfig {
 		executor.setCorePoolSize(corePoolSize);
 		executor.setQueueCapacity(queueCapacity);
 		executor.setKeepAliveSeconds(keepAliveSeconds);
-		// 线程池对拒绝任务(无线程可用)的处理策略
+		/*线程池对拒绝任务(无线程可用)的处理策略*/
 		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 		return executor;
 	}
 
-	/**
-	 * 执行周期性或定时任务
-	 */
+	/*执行周期性或定时任务*/
 	@Bean(name = "scheduledExecutorService")
 	protected ScheduledExecutorService scheduledExecutorService() {
 		return new ScheduledThreadPoolExecutor(corePoolSize,

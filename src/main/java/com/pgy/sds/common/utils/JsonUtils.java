@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 10:20
  * Description: Json工具类，依赖 jackson
  */
@@ -22,7 +22,7 @@ public class JsonUtils {
 		try {
 			return objMapper.readValue(jsonString, clazz);
 		} catch (IOException e) {
-			log.error("Json字符串转化成对象出错",e);
+			log.error("Json字符串转化成对象出错", e);
 		}
 		return null;
 	}

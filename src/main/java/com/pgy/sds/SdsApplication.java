@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = "com.pgy.sds.**")
-@MapperScan(basePackages = { "com.pgy.sds.dao" })
+//@MapperScan(basePackages = { "com.pgy.sds.dao" })
 public class SdsApplication {
 
 	public static void main(String[] args) {

@@ -3,7 +3,7 @@ package com.pgy.sds.common.utils;
 import org.springframework.context.MessageSource;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-11 10:56
  * Description: 获取i18n资源文件
  */

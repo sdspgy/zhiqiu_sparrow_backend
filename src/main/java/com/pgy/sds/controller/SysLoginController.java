@@ -53,7 +53,7 @@ public class SysLoginController extends AbstractController {
 		if (user == null || !user.getPassword().equals(new Sha256Hash(form.getPassword(), user.getSalt()).toHex())) {
 			// 用户名或密码错误
 			log.info(new Sha256Hash("123456", "123456").toHex());
-			AsyncManager.me().execute(AsyncFactory.recordLogininfor(user.getUsername(), "fail", MessageUtils.message("user.password.retry.limit.exceed", maxRetryCount)));
+			AsyncManager.me().execute(AsyncFactory.recordLogininfo(user.getUsername(), "fail", MessageUtils.message("user.password.retry.limit.exceed", maxRetryCount)));
 			return Result.error(ErrorEnum.USERNAME_OR_PASSWORD_WRONG);
 		}
 		if (user.getStatus() == "0") {

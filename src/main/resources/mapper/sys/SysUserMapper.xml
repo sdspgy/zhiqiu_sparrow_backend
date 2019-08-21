@@ -16,7 +16,7 @@
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
 
-        <collection property="roleList" ofType="SysRole">
+        <collection property="roleList" ofType="com.pgy.sds.model.SysRole">
             <id column="role_id" property="roleId"/>
             <result column="role_name" property="roleName"/>
         </collection>

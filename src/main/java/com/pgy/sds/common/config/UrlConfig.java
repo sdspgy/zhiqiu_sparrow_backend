@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-24 21:28
  * Description:
  */

@@ -7,12 +7,13 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 10:28
  * Description:
  */
 @Component
 public class RedisUtils {
+
 	@Autowired
 	private RedisTemplate<String,Object> redisTemplate;
 	@Autowired
@@ -117,7 +118,5 @@ public class RedisUtils {
 	public void updateExpire(String key) {
 		redisTemplate.expire(key,DEFAULT_EXPIRE,TimeUnit.SECONDS);
 	}
-
-
 
 }

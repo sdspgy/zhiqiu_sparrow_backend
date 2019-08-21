@@ -6,16 +6,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-11 11:44
  * Description: 线程相关工具类
  */
 @Slf4j
 public class Threads {
 
-	/**
-	 * sleep等待,单位为毫秒
-	 */
+	/*sleep等待,单位为毫秒*/
 	public static void sleep(long milliseconds) {
 		try {
 			Thread.sleep(milliseconds);

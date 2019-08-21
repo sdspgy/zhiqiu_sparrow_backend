@@ -6,16 +6,14 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-11 11:03
  * Description: spring工具类 方便在非spring管理环境中获取bean
  */
 @Component
 public final class SpringUtils implements BeanFactoryPostProcessor {
 
-	/**
-	 * Spring应用上下文环境
-	 */
+	/*Spring应用上下文环境*/
 	private static ConfigurableListableBeanFactory beanFactory;
 
 	@Override

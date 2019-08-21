@@ -3,7 +3,7 @@ package com.pgy.sds.common.druidSource;
 import java.lang.annotation.*;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-08-02 09:29
  * Description:
  */

@@ -3,7 +3,7 @@ package com.pgy.sds.model;
 import java.util.HashMap;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 09:36
  * Description:
  */
@@ -42,15 +42,7 @@ public class Result extends HashMap<String, Object> {
 		return new Result().put("code", eEnum.getCode()).put("msg", eEnum.getMsg());
 	}
 
-
-
-	/**
-	 * 封装业务数据
-	 *
-	 * @param key
-	 * @param value
-	 * @return
-	 */
+	/*封装业务数据*/
 	@Override
 	public Result put(String key, Object value) {
 		super.put(key, value);

@@ -4,12 +4,13 @@ import com.pgy.sds.model.ErrorEnum;
 import lombok.Data;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 10:34
  * Description:
  */
 @Data
 public class MyException extends RuntimeException{
+
 	private String msg;
 	private int code = 500;
 

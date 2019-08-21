@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 10:15
  * Description:
  */
@@ -24,9 +24,8 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
 	@Override
 	protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) throws Exception {
-		//获取请求token
+		/*获取请求token*/
 		String token = getRequestToken((HttpServletRequest) request);
-
 		if (StringUtils.isEmpty(token)) {
 			return null;
 		}
@@ -43,7 +42,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-		//获取请求token，如果token不存在，直接返回401
+		/*获取请求token，如果token不存在，直接返回401*/
 		String token = getRequestToken((HttpServletRequest) request);
 		if (StringUtils.isEmpty(token)) {
 			HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -64,7 +63,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
 		httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
 		httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
 		try {
-			//处理登录失败的异常
+			/*处理登录失败的异常*/
 			Throwable throwable = e.getCause() == null ? e : e.getCause();
 			Result r = Result.error(ErrorEnum.NO_AUTH.getCode(), throwable.getMessage());
 			String json = JsonUtils.toJson(r);
@@ -74,13 +73,11 @@ public class OAuth2Filter extends AuthenticatingFilter {
 		return false;
 	}
 
-	/**
-	 * 获取请求的token
-	 */
+	/*获取请求的token*/
 	private String getRequestToken(HttpServletRequest httpRequest) {
-		//从header中获取token
+		/*从header中获取token*/
 		String token = httpRequest.getHeader("token");
-		//如果header中不存在token，则从参数中获取token
+		/*如果header中不存在token，则从参数中获取token*/
 		if (StringUtils.isEmpty(token)) {
 			token = httpRequest.getParameter("token");
 		}

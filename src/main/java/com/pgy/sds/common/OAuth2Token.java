@@ -3,7 +3,7 @@ package com.pgy.sds.common;
 import org.apache.shiro.authc.AuthenticationToken;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 10:20
  * Description:
  */

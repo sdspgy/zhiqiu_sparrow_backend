@@ -1,7 +1,7 @@
 package com.pgy.sds.common.utils;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 19:54
  * Description:
  */

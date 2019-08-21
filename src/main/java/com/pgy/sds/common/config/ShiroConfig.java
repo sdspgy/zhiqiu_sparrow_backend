@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-10 10:08
  * Description:
  */
@@ -27,16 +27,16 @@ import java.util.Map;
 public class ShiroConfig {
 
 	@Bean("sessionManager")
-	public SessionManager sessionManager(){
+	public SessionManager sessionManager() {
 		DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-		// 是否定时检查session
+		/*是否定时检查session*/
 		sessionManager.setSessionValidationSchedulerEnabled(false);
 		return sessionManager;
 	}
 
 	@Bean("securityManager")
-	public SecurityManager securityManager(OAuth2Realm oAuth2Realm, SessionManager sessionManager){
-		DefaultWebSecurityManager securityManager=new DefaultWebSecurityManager();
+	public SecurityManager securityManager(OAuth2Realm oAuth2Realm, SessionManager sessionManager) {
+		DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
 		securityManager.setRealm(oAuth2Realm);
 		securityManager.setSessionManager(sessionManager);
 		return securityManager;
@@ -46,19 +46,16 @@ public class ShiroConfig {
 	public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager) {
 		ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
 		shiroFilter.setSecurityManager(securityManager);
-
-		//oauth过滤
+		/*oauth过滤*/
 		Map<String, Filter> filters = new HashMap<>();
 		filters.put("oauth2", new OAuth2Filter());
 		shiroFilter.setFilters(filters);
-
 		Map<String, String> filterMap = new LinkedHashMap<>();
-		// 两个url规则都可以匹配同一个url，只执行第一个
+		/*两个url规则都可以匹配同一个url,只执行第一个*/
 		filterMap.put("/admin/sys/login", "anon");
 		filterMap.put("/admin/**", "oauth2");
 		filterMap.put("/**", "anon");
 		shiroFilter.setFilterChainDefinitionMap(filterMap);
-
 		return shiroFilter;
 	}
 

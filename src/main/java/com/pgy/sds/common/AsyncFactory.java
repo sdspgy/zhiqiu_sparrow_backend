@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.TimerTask;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
+ * Author:   taoyuzhu
  * Date:     2019-07-11 11:46
  * Description: 异步工厂（产生任务用）
  */
 @Slf4j
 public class AsyncFactory {
 
-	public static TimerTask recordLogininfor(final String username, final String status, final String messages, final Object... args) {
+	public static TimerTask recordLogininfo(final String username, final String status, final String messages, final Object... args) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		final UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
 		return new TimerTask() {
@@ -30,7 +30,7 @@ public class AsyncFactory {
 				StringBuffer loginIdd = new StringBuffer();
 				loginIdd.append(os).append(":").append(browser).toString();
 				String message = String.format("[姓名]：%s,[状态]：%s,[信息]：%s,[地址]：%s", username, status, messages, loginIdd);
-				log.info(message);
+				log.info("-------" + message);
 				//写库
 			}
 		};
