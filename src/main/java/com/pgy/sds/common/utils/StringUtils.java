@@ -14,4 +14,5 @@ public class StringUtils extends org.springframework.util.StringUtils {
 	public static boolean isNotBlank(final CharSequence cs) {
 		return StringUtils.hasText(cs);
 	}
+
 }
