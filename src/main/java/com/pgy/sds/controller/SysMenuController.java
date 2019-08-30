@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Author:   yuzhu·tao
- * Date:     2019/7/24 23:25
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:25
  */
 @RestController
 @RequestMapping("/admin/sys/menu")

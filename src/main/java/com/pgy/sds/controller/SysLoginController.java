@@ -3,6 +3,7 @@ package com.pgy.sds.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.pgy.sds.common.AsyncFactory;
 import com.pgy.sds.common.AsyncManager;
+import com.pgy.sds.common.constant.SysConstants;
 import com.pgy.sds.common.utils.MessageUtils;
 import com.pgy.sds.dao.SysUserMapper;
 import com.pgy.sds.model.*;
@@ -23,9 +24,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
- * Date:     2019-07-10 09:34
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:24
  */
 @Slf4j
 @RestController
@@ -46,18 +46,17 @@ public class SysLoginController extends AbstractController {
 			String msg = StringUtils.collectionToDelimitedString(messAges, ",");
 			return Result.error(msg);
 		}
-		// 用户信息
+		//用户信息
 		SysUser user = sysUserMapper.selectOne(new QueryWrapper<SysUser>()
 						.lambda()
 						.eq(SysUser::getUsername, form.getUsername()));
 		if (user == null || !user.getPassword().equals(new Sha256Hash(form.getPassword(), user.getSalt()).toHex())) {
-			// 用户名或密码错误
-			log.info(new Sha256Hash("123456", "123456").toHex());
+			//用户名或密码错误
 			AsyncManager.me().execute(AsyncFactory.recordLogininfo(user.getUsername(), "fail", MessageUtils.message("user.password.retry.limit.exceed", maxRetryCount)));
 			return Result.error(ErrorEnum.USERNAME_OR_PASSWORD_WRONG);
 		}
-		if (user.getStatus() == "0") {
-			return Result.error("账号已被锁定，请联系管理员");
+		if (user.getStatus().equals(SysConstants.ACCOUNT_LOCKING)) {
+			return Result.error(MessageUtils.message("user.blocked"));
 		}
 
 		//生成token，并保存到redis

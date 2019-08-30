@@ -1,9 +1,8 @@
 package com.pgy.sds.common.utils;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 19:54
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:00
  */
 public class StringUtils extends org.springframework.util.StringUtils {
 

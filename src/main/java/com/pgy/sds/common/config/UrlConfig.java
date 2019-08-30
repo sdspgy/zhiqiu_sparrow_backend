@@ -7,9 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-24 21:28
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 @Configuration
 public class UrlConfig {

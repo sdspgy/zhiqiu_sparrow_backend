@@ -7,9 +7,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-11 15:00
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:47
  */
 public class BeanUtils {
 

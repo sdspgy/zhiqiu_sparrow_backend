@@ -6,9 +6,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-11 11:44
- * Description: 线程相关工具类
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:09
  */
 @Slf4j
 public class Threads {
@@ -36,7 +35,7 @@ public class Threads {
 				if (!pool.awaitTermination(120, TimeUnit.SECONDS)) {
 					pool.shutdownNow();
 					if (!pool.awaitTermination(120, TimeUnit.SECONDS)) {
-						log.info("Pool did not terminate");
+						log.info("Pool not terminated");
 					}
 				}
 			} catch (InterruptedException ie) {

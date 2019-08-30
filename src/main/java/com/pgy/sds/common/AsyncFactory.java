@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.TimerTask;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-11 11:46
- * Description: 异步工厂（产生任务用）
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:07
  */
 @Slf4j
 public class AsyncFactory {

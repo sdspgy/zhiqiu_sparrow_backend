@@ -3,9 +3,8 @@ package com.pgy.sds.model;
 import java.util.HashMap;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 09:36
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:25
  */
 public class Result extends HashMap<String, Object> {
 

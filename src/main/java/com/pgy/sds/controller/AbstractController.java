@@ -4,9 +4,8 @@ import com.pgy.sds.model.SysUser;
 import org.apache.shiro.SecurityUtils;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
- * Date:     2019-07-10 16:48
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:22
  */
 public class AbstractController {
 

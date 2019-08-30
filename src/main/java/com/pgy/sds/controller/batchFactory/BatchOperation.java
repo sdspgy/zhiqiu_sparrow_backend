@@ -3,9 +3,8 @@ package com.pgy.sds.controller.batchFactory;
 import java.util.List;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
- * Date:     2019-07-26 11:22
- * Description: 批量操作
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:24
  */
 public interface BatchOperation {
 

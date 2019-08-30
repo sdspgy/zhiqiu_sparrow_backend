@@ -1,12 +1,13 @@
 package com.pgy.sds.common.constant;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:39
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 public class SysConstants {
 
 	/*超级管理员账号Id*/
-	public static Integer SUPER_ADMIN = 1;
+	public final static Integer SUPER_ADMIN = 1;
+	/*账号已锁定*/
+	public final static Integer ACCOUNT_LOCKING = 0;
 }

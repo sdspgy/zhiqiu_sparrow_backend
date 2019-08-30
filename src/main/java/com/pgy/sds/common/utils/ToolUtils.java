@@ -11,9 +11,8 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-08-21 10:24
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:41
  */
 @Slf4j
 public class ToolUtils {
@@ -96,7 +95,7 @@ public class ToolUtils {
 		for (int i : choices) {
 			sum += i;
 		}
-		int r = randomCloseNum(1, sum);
+		int r = randomCloseNum(0, sum);
 		int total = 0;
 		for (int i = 0; i < choices.length; i++) {
 			total += choices[i];

@@ -3,9 +3,8 @@ package com.pgy.sds.common.druidSource;
 import java.lang.annotation.*;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-08-02 09:29
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 @Target({ ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)

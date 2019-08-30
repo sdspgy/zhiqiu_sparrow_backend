@@ -6,9 +6,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:22
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:44
  */
 public class HttpContextUtils {
 

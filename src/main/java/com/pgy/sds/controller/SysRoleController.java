@@ -15,9 +15,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
- * Date:     2019-07-26 17:46
- * Description: 角色控制器
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:25
  */
 @RestController
 @RequestMapping("/admin/sys/role")

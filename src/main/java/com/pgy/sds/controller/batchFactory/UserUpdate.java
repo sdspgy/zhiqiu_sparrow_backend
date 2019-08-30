@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
- * Date:     2019-07-26 11:25
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:25
  */
 @Service
 public class UserUpdate implements BatchOperation {

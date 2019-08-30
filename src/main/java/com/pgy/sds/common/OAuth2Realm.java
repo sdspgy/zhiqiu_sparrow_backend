@@ -1,5 +1,7 @@
 package com.pgy.sds.common;
 
+import com.pgy.sds.common.constant.SysConstants;
+import com.pgy.sds.model.ErrorEnum;
 import com.pgy.sds.model.SysUser;
 import com.pgy.sds.model.SysUserToken;
 import com.pgy.sds.service.ShiroService;
@@ -14,9 +16,8 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:23
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:03
  */
 @Component
 public class OAuth2Realm extends AuthorizingRealm {
@@ -34,10 +35,8 @@ public class OAuth2Realm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		SysUser user = (SysUser) principals.getPrimaryPrincipal();
 		Integer userId = user.getUserId();
-
 		//用户权限列表
 		Set<String> permsSet = shiroService.getUserPermissions(userId);
-
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		if (!permsSet.isEmpty()) {
 			info.setStringPermissions(permsSet);
@@ -53,13 +52,13 @@ public class OAuth2Realm extends AuthorizingRealm {
 		SysUserToken tokenEntity = shiroService.queryByToken(accessToken);
 		//token失效
 		if (tokenEntity == null) {
-			throw new IncorrectCredentialsException("token失效，请重新登录");
+			throw new IncorrectCredentialsException(ErrorEnum.TOKEN_INVALID.getMsg());
 		}
 		//查询用户信息
 		SysUser user = shiroService.queryUser(tokenEntity.getUserId());
 		//账号锁定
-		if (user.getStatus() == "0") {
-			throw new LockedAccountException("账号已被锁定,请联系管理员");
+		if (user.getStatus().equals(SysConstants.ACCOUNT_LOCKING)) {
+			throw new LockedAccountException(ErrorEnum.ACCOUNT_LOCKING.getMsg());
 		}
 		//续期
 		shiroService.refreshToken(tokenEntity.getUserId(), accessToken);

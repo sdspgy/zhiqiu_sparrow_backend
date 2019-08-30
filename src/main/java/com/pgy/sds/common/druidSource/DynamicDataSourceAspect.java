@@ -10,9 +10,8 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-08-01 20:52
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 @Aspect
 @Component

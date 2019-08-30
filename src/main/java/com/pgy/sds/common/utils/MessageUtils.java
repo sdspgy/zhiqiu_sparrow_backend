@@ -3,9 +3,8 @@ package com.pgy.sds.common.utils;
 import org.springframework.context.MessageSource;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-11 10:56
- * Description: 获取i18n资源文件
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:47
  */
 public class MessageUtils {
 

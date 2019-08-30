@@ -16,9 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:15
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:03
  */
 public class OAuth2Filter extends AuthenticatingFilter {
 

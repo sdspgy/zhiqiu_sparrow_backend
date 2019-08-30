@@ -19,9 +19,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:08
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 @Configuration
 public class ShiroConfig {

@@ -6,15 +6,15 @@ import java.security.MessageDigest;
 import java.util.UUID;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:33
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:09
  */
 public class TokenGenerator {
 
 	public static String generateValue() {
 		return generateValue(UUID.randomUUID().toString());
 	}
+
 	private static final char[] hexCode = "0123456789abcdef".toCharArray();
 
 	public static String toHexString(byte[] data) {

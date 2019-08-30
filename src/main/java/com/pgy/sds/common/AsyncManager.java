@@ -7,9 +7,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-11 11:41
- * Description: 异步任务管理器
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:07
  */
 public class AsyncManager {
 

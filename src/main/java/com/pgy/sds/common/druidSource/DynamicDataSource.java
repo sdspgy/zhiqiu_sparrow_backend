@@ -3,9 +3,8 @@ package com.pgy.sds.common.druidSource;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-08-02 09:28
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:42
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
 

@@ -3,9 +3,8 @@ package com.pgy.sds.common;
 import org.apache.shiro.authc.AuthenticationToken;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:20
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:09
  */
 public class OAuth2Token implements AuthenticationToken {
 

@@ -19,9 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-08-02 09:21
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:47
  */
 @Configuration
 @MapperScan(basePackages = "com.pgy.sds.dao", sqlSessionFactoryRef = "sqlSessionFactory")

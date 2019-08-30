@@ -6,9 +6,8 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-11 11:03
- * Description: spring工具类 方便在非spring管理环境中获取bean
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:47
  */
 @Component
 public final class SpringUtils implements BeanFactoryPostProcessor {

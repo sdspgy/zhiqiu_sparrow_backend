@@ -8,9 +8,8 @@ import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 12:54
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 @Configuration
 //@EnableCaching

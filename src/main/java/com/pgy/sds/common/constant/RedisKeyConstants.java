@@ -1,9 +1,8 @@
 package com.pgy.sds.common.constant;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:32
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 public class RedisKeyConstants {
 

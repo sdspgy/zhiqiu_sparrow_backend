@@ -8,9 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 10:20
- * Description: Json工具类，依赖 jackson
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:47
  */
 @Slf4j
 public class JsonUtils {

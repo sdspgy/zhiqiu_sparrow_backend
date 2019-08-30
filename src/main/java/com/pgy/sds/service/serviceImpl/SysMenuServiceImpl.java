@@ -11,9 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Author:   yuzhu·tao
- * Date:     2019/7/24 23:20
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:25
  */
 @Service
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements SysMenuService {

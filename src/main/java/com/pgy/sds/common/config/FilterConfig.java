@@ -8,9 +8,8 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 import javax.servlet.DispatcherType;
 
 /**
- * Author:   taoyuzhu
- * Date:     2019-07-10 12:52
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 19:43
  */
 @Configuration
 public class FilterConfig {

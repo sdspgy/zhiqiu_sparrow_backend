@@ -21,16 +21,15 @@ import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 
 /**
- * Author:   taoyuzhu(taoyuzhu@hulai.com)
- * Date:     2019-07-10 19:26
- * Description:
+ * Author:         知秋
+ * CreateDate:     2019-08-30 20:22
  */
 @Aspect
 @Component
 @Slf4j
 public class SysLogAspect extends AbstractController {
 
-//	@Pointcut("within(@org.springframework.web.bind.annotation.RequestMapping *)")
+	//	@Pointcut("within(@org.springframework.web.bind.annotation.RequestMapping *)")
 	@Pointcut("@annotation(com.pgy.sds.model.Log)")
 	public void logPointCut() {
 
@@ -48,7 +47,7 @@ public class SysLogAspect extends AbstractController {
 
 	protected void handleLog(final JoinPoint joinPoint, final Exception e) {
 		try {
-			// 获得注解
+			//获得注解
 			Log controllerLog = getAnnotationLog(joinPoint);
 			if (controllerLog == null) {
 				return;
@@ -57,7 +56,7 @@ public class SysLogAspect extends AbstractController {
 			String LoginName = getUserName();
 			String ip = SecurityUtils.getSubject().getSession().getHost();
 			String nowTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(System.currentTimeMillis());
-			// 设置类名-方法名
+			//设置类名-方法名
 			String className = joinPoint.getTarget().getClass().getName();
 			String methodName = joinPoint.getSignature().getName();
 			//请求参数
