@@ -6,6 +6,7 @@ import org.springframework.util.CollectionUtils;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -137,5 +138,11 @@ public class ToolUtils {
 	public static List<Integer> arrayToListByArrayList(int[] array) {
 		List ints = Arrays.asList(array);
 		return ints;
+	}
+
+	/*Conllections洗牌*/
+	public static <T> List<T> shuffleList(List<T> primitiveList) {
+		Collections.shuffle(primitiveList);
+		return primitiveList;
 	}
 }
