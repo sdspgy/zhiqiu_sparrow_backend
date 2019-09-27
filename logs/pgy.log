@@ -1,0 +1,5 @@
+2019-08-22 03:01:06.263 DEBUG 5492 --- [Thread-30] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@e856750, started on Wed Aug 21 21:59:55 CST 2019
+2019-08-22 03:01:06.270 DEBUG 5492 --- [Thread-30] ptablePropertiesBeanFactoryPostProcessor : Application Event Raised: ContextClosedEvent
+2019-08-22 03:01:06.271 DEBUG 5492 --- [Thread-30] ptablePropertiesBeanFactoryPostProcessor : Application Event Raised: ContextClosedEvent
+2019-08-22 03:01:06.320  INFO 5492 --- [Thread-30] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'threadPoolTaskExecutor'
+2019-08-22 03:01:06.373  INFO 5492 --- [Thread-30] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
