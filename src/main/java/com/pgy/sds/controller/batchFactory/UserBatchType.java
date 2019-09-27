@@ -1,10 +1,7 @@
 package com.pgy.sds.controller.batchFactory;
 
 import com.pgy.sds.common.utils.SpringUtils;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

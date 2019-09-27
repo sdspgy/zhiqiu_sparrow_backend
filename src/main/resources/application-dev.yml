@@ -29,12 +29,6 @@ spring:
         max-idle: 10 #连接池最大空闲连接
         min-idle: 5 #连接池最小空闲连接
 
-#mybatis-plus
-mybatis-plus:
-  global-config:
-    #刷新Mapper，只在开发环境打开
-    refresh: true
-
 jasypt:
   encryptor:
-    password: druid
+    password: 123456

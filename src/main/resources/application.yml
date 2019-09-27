@@ -15,7 +15,7 @@ sds:
 #配置的日志
 logging:
   level:
-    com: debug
+    com: info
   file: logs/pgy.log
 #配置路径
 debug: true
@@ -69,6 +69,8 @@ mybatis-plus:
   #实体扫描，多个package用逗号或者分号分隔
   type-aliases-package: com.pgy.sds.model
   global-config:
+    #刷新Mapper，只在开发环境打开
+    refresh: true
     # 数据库相关配置
     db-config:
       #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";

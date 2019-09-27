@@ -26,11 +26,11 @@ public class Result extends HashMap<String, Object> {
 	}
 
 	public static Result error(String msg) {
-		return new Result().put("msg",msg).put("code", ErrorEnum.UNKNOWN.getCode());
+		return new Result().put("msg", msg).put("code", ErrorEnum.UNKNOWN.getCode());
 	}
 
-	public static Result error(Integer code , String msg){
-		return new Result().put("code",code).put("msg",msg);
+	public static Result error(Integer code, String msg) {
+		return new Result().put("code", code).put("msg", msg);
 	}
 
 	public static Result exception() {
