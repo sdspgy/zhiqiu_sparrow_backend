@@ -1,6 +1,7 @@
 package com.pgy.sds.controller;
 
 import com.pgy.sds.common.utils.StringUtils;
+import com.pgy.sds.common.utils.ToolUtils;
 import com.pgy.sds.model.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -17,7 +18,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
 import java.util.Enumeration;
 
 /**
@@ -55,7 +55,7 @@ public class SysLogAspect extends AbstractController {
 			String name = controllerLog.value();
 			String LoginName = getUserName();
 			String ip = SecurityUtils.getSubject().getSession().getHost();
-			String nowTime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(System.currentTimeMillis());
+			String nowTime = ToolUtils.simpleDateFormat(System.currentTimeMillis());
 			//设置类名-方法名
 			String className = joinPoint.getTarget().getClass().getName();
 			String methodName = joinPoint.getSignature().getName();

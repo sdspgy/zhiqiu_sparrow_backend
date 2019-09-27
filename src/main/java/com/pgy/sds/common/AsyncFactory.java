@@ -29,7 +29,7 @@ public class AsyncFactory {
 				StringBuffer loginIdd = new StringBuffer();
 				loginIdd.append(os).append(":").append(browser).toString();
 				String message = String.format("[姓名]：%s,[状态]：%s,[信息]：%s,[地址]：%s", username, status, messages, loginIdd);
-				log.info("-------" + message);
+				log.info("登录记录--" + message);
 				//写库
 			}
 		};

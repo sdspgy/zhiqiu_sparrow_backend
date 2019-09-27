@@ -5,10 +5,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -24,17 +21,14 @@ public class ToolUtils {
 		return random;
 	}
 
-	public static void main(String[] args) {
-
-	}
-
 	public static String decimalFormat(int molecule, int denominator) {
 		String format = new DecimalFormat("0.00").format((float) molecule / denominator);
 		return format;
 	}
 
-	public static String simpleDateFormat() {
-		String format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(System.currentTimeMillis());
+	public static String simpleDateFormat(long time) {
+		time = Objects.isNull(time) ? System.currentTimeMillis() : time;
+		String format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(time);
 		return format;
 	}
 

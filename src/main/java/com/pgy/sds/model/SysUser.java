@@ -1,5 +1,7 @@
 package com.pgy.sds.model;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.metadata.BaseRowModel;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -22,16 +24,18 @@ import java.util.List;
  */
 @Data
 @ApiModel(value = "SysUser对象", description = "用户管理")
-public class SysUser implements Serializable {
+public class SysUser extends BaseRowModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty(value = "主键")
 	@TableId(value = "user_id", type = IdType.NONE)
+	@ExcelProperty(value = "userId", index = 0)
 	private Integer userId;
 
 	@NotBlank(message = "用户名不能为空")
 	@ApiModelProperty(value = "用户名")
+	@ExcelProperty(value = "用户名", index = 1)
 	private String username;
 
 	@NotBlank(message = "密码不能为空")
@@ -51,6 +55,7 @@ public class SysUser implements Serializable {
 	@ApiModelProperty(value = "创建者Id")
 	private Integer createUserId;
 
+	@ExcelProperty(value = "时间", index = 2)
 	@ApiModelProperty(value = "创建时间")
 	private Date createTime;
 
