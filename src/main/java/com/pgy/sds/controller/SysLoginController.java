@@ -96,12 +96,7 @@ public class SysLoginController extends AbstractController {
 		OutputStream outputStream = response.getOutputStream();
 		try {
 			//添加响应头信息
-			response.setHeader("Content-disposition", "attachment; filename=" + "catagory.xls");
-			response.setContentType("application/msexcel;charset=UTF-8");//设置类型
-			response.setHeader("Pragma", "No-cache");//设置头
-			response.setHeader("Cache-Control", "no-cache");//设置头
-			response.setDateHeader("Expires", 0);//设置日期头
-
+			head(response);
 			//实例化 ExcelWriter
 			writer = new ExcelWriter(outputStream, ExcelTypeEnum.XLS, true);
 			//实例化表单
@@ -118,5 +113,13 @@ public class SysLoginController extends AbstractController {
 		} finally {
 			response.getOutputStream().close();
 		}
+	}
+
+	private void head(HttpServletResponse response) {
+		response.setHeader("Content-disposition", "attachment; filename=" + "catagory.xls");
+		response.setContentType("application/msexcel;charset=UTF-8");//设置类型
+		response.setHeader("Pragma", "No-cache");//设置头
+		response.setHeader("Cache-Control", "no-cache");//设置头
+		response.setDateHeader("Expires", 0);//设置日期头
 	}
 }
