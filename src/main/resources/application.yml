@@ -18,7 +18,7 @@ logging:
     com: info
 #  file: logs/pgy.log
 #配置路径
-debug: true
+#debug: true
 server:
   servlet:
     context-path:

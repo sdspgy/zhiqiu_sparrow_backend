@@ -12,7 +12,7 @@
     <artifactId>sds</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sds</name>
-    <description>知秋</description>
+    <description>zhiqiu</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -66,6 +66,20 @@
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>${jasypt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--jpa-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!--quartz-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
         <!-- 常用工具类 -->
         <dependency>

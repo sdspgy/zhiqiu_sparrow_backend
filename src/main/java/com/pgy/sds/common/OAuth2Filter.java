@@ -44,10 +44,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
 		/*获取请求token，如果token不存在，直接返回401*/
 		String token = getRequestToken((HttpServletRequest) request);
 		if (StringUtils.isEmpty(token)) {
-			HttpServletResponse httpResponse = (HttpServletResponse) response;
-			httpResponse.setContentType("application/json;charset=utf-8");
-			httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
-			httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
+			HttpServletResponse httpResponse = getHttpServletResponse((HttpServletResponse) response);
 			String json = JsonUtils.toJson(Result.error(ErrorEnum.INVALID_TOKEN));
 			httpResponse.getWriter().print(json);
 			return false;
@@ -57,10 +54,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
 	@Override
 	protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response) {
-		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		httpResponse.setContentType("application/json;charset=utf-8");
-		httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
-		httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
+		HttpServletResponse httpResponse = getHttpServletResponse((HttpServletResponse) response);
 		try {
 			/*处理登录失败的异常*/
 			Throwable throwable = e.getCause() == null ? e : e.getCause();
@@ -68,8 +62,17 @@ public class OAuth2Filter extends AuthenticatingFilter {
 			String json = JsonUtils.toJson(r);
 			httpResponse.getWriter().print(json);
 		} catch (Exception e1) {
+			e1.printStackTrace();
 		}
 		return false;
+	}
+
+	private HttpServletResponse getHttpServletResponse(HttpServletResponse response) {
+		HttpServletResponse httpResponse = response;
+		httpResponse.setContentType("application/json;charset=utf-8");
+		httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
+		httpResponse.setHeader("Access-Control-Allow-Origin", HttpContextUtils.getOrigin());
+		return httpResponse;
 	}
 
 	/*获取请求的token*/
