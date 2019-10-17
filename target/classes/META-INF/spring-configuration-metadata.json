@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource.common",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.pgy.sds.common.druidSource.DruidDataSourceConfig",
+      "sourceMethod": "commonDataSource()"
+    },
+    {
+      "name": "spring.datasource.resource",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.pgy.sds.common.druidSource.DruidDataSourceConfig",
+      "sourceMethod": "resourceDataSource()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

@@ -1,0 +1,103 @@
+# 项目相关配置
+sds:
+  # 名称
+  name: pgy
+  # 版本
+  version: 1.1
+  # 版权年份
+  copyrightYear: 2019
+  # 文件路径
+  profile: D:/profile/
+  # 获取ip地址开关
+  addressEnabled: true
+#日志级别
+#trace,debug,info,warn,error
+#配置的日志
+logging:
+  level:
+    com: info
+#  file: logs/pgy.log
+#配置路径
+#debug: true
+server:
+  servlet:
+    context-path:
+    session:
+      timeout: 600s
+  #服务端口
+  port: 9001
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 800
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 30
+
+spring:
+  profiles:
+    # 环境 开发dev，测试test，生产prod
+    active: dev
+  # 模板引擎
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+  # 资源信息
+  messages:
+    # 国际化资源文件路径
+    basename: i18n/messages
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  # 文件上传
+  servlet:
+    multipart:
+      max-file-size:  30MB
+      max-request-size:  30MB
+  # 服务模块
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true
+
+#mybatis
+mybatis-plus:
+  #mapper文件
+  mapper-locations: classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.pgy.sds.model
+  global-config:
+    #刷新Mapper，只在开发环境打开
+    refresh: true
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: auto
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: not_empty
+
+  #mybatis原生配置
+  configuration:
+    #驼峰下划线转换
+    map-underscore-to-camel-case: true
+    #不开启二级缓存
+    cache-enabled: false
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# PageHelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# 用户配置
+user:
+  password:
+    # 密码错误{maxRetryCount}次锁定10分钟
+    maxRetryCount: 8

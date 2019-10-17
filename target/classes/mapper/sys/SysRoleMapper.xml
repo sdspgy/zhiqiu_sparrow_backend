@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pgy.sds.dao.SysRoleMapper">
+
+    <sql id="sysRole">
+
+    </sql>
+
+    <!--查询用户所以角色-->
+    <select id="queryUserRoles" parameterType="java.lang.Integer" resultType="com.pgy.sds.model.SysRole">
+        SELECT * FROM sys_role sr LEFT JOIN sys_user_role sur USING(role_id) WHERE sur.user_id = #{userId} order by sr.role_id ASC
+    </select>
+</mapper>
