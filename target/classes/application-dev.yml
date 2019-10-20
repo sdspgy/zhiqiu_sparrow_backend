@@ -2,38 +2,47 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 3000
+    common:
       driverClassName: com.mysql.jdbc.Driver
       url: jdbc:mysql://localhost:3306/dbblog?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
       username: root
       password: root
-
-  quartz:
-    # quartz 相关属性配置
-    properties:
-      org:
-        quartz:
-          scheduler:
-            instanceName: clusteredScheduler
-            instanceId: AUTO
-          jobStore:
-            class: org.quartz.impl.jdbcjobstore.JobStoreTX
-            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
-            tablePrefix: QRTZ_
-            isClustered: true
+    resource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/pgy?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: root
+#  quartz:
+#    # quartz 相关属性配置
+#    properties:
+#      org:
+#        quartz:
+#          scheduler:
+#            instanceName: clusteredScheduler
+#            instanceId: AUTO
+#          jobStore:
+#            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+#            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+#            tablePrefix: QRTZ_
+#            isClustered: true
 #            datasource: commonDataSource
-            clusterCheckinInterval: 10000
-            useProperties: false
-          threadPool:
-            class: org.quartz.simpl.SimpleThreadPool
-            threadCount: 10
-            threadPriority: 5
-            threadsInheritContextClassLoaderOfInitializingThread: true
-    #数据库方式
-    job-store-type: jdbc
-
-  jpa:
-    open-in-view: false
-    show-sql: false
+#            clusterCheckinInterval: 10000
+#            useProperties: false
+#          threadPool:
+#            class: org.quartz.simpl.SimpleThreadPool
+#            threadCount: 10
+#            threadPriority: 5
+#            threadsInheritContextClassLoaderOfInitializingThread: true
+#    #数据库方式
+#    job-store-type: jdbc
+#
+#  jpa:
+#    open-in-view: false
+#    show-sql: false
 
   # redis 配置
   redis:
