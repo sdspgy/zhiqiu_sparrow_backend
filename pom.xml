@@ -33,7 +33,7 @@
         <pagehelper.spring.boot.starter.version>1.2.10</pagehelper.spring.boot.starter.version>
         <bitwalker.version>1.19</bitwalker.version>
         <com.alibaba.easyexcel.version>1.1.2-beat1</com.alibaba.easyexcel.version>
-        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
     <dependencies>
